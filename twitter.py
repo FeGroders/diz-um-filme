@@ -45,7 +45,7 @@ def guarda_ultimo_id_lido(ultimo_id_lido, nome_arquivo): #Função que salva o u
 def requestListaFilmes():
     print('--------------------------------') 
     pagina = str(sorteiaPagina())
-    link = 'https://api.themoviedb.org/3/discover/movie?with_watch_providers=8&watch_region=BR&page={0}&api_key={}&language=pt-BR'.format(pagina,API_KEY_TMDB)
+    link = 'https://api.themoviedb.org/3/discover/movie?with_watch_providers=8&watch_region=BR&page={0}&api_key={1}&language=pt-BR'.format(pagina,API_KEY_TMDB)
     response = requests.get(link)
     responseJson = response.json()["results"]
     responseFinal = responseJson[sorteiaFilme()]
@@ -89,10 +89,9 @@ def fazerTweet():
             fraseFormatada = 'Olá @{}! 🎥 Minha indicação para você é: {} | ⭐ Nota: {}/10.0 | 🎉 Ano de lançamento: {} | 🔎 Ver mais sobre: https://www.imdb.com/title/{}' #Formata a frase       
             fraseFormatada = fraseFormatada.format(mention.user.screen_name, jsonFilme["title"], str(jsonFilme["vote_average"]), str(anoLancamento[0:4]), str(jsonFilme["imdb_id"]))
             
-            linkImagem = 'https://image.tmdb.org/t/p/w500{img}'
-            linkImagem = linkImagem.replace('{img}', jsonFilme['poster_path'])            
+            linkImagem = 'https://image.tmdb.org/t/p/w500{}'.format(jsonFilme['poster_path'])           
             
-            tweet_image(linkImagem,fraseFormatada, mention.id)
+            tweet_image(linkImagem, fraseFormatada, mention.id)
 
 def formatarHoras():
     now = datetime.now()
