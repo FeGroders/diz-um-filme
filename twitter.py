@@ -101,4 +101,4 @@ def formatarHoras():
 while True: #Loop que a atualiza o bot a cada 60 segundos
     fazerTweet()  
     #requestFilmeEspecifico()
-    time.sleep(30)
+    time.sleep(60)
