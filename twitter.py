@@ -74,20 +74,19 @@ def tweet_image(url, message, mention):
 
 def fazerTweet():
     print(formatarHoras(),'BOT TRABALHANDO...')
-    jsonFilme = requestFilmeEspecifico()
     ultimo_id_lido = le_ultimo_id_lido(nome_arquivo)
     mentions = api.mentions_timeline(ultimo_id_lido , tweet_mode='extended') #Lê as menções ao bot e salva em um vetor
     for mention in reversed(mentions): #'reserved(mentions)' serve para ler o vetor do mais velho para o mais novo
         if '@dizumfilme' in mention.full_text.lower(): #Verificação apenas para garantir que o bot vai ler todas menções, independente de letra maiúscula ou minúscula
+            jsonFilme = requestFilmeEspecifico()
             print(str(mention.id) + ' - ' + mention.full_text)
             ultimo_id_lido = mention.id
             guarda_ultimo_id_lido(ultimo_id_lido, nome_arquivo) #Salva o id lido
             print('Respondendo tweet')
             
             anoLancamento = jsonFilme["release_date"]
-            
-            fraseFormatada = 'Olá @{}! 🎥 Minha indicação para você é: {} | ⭐ Nota: {}/10.0 | 🎉 Ano de lançamento: {} | 🔎 Ver mais sobre: https://www.imdb.com/title/{}' #Formata a frase       
-            fraseFormatada = fraseFormatada.format(mention.user.screen_name, jsonFilme["title"], str(jsonFilme["vote_average"]), str(anoLancamento[0:4]), str(jsonFilme["imdb_id"]))
+            fraseFormatada = 'Olá @{}! 🎥 Minha indicação para você é: {} | 🎞️ Gênero: {} | ⭐ Nota: {}/10.0 | 🎉 Ano de lançamento: {} | 🔎 Ver mais sobre: https://www.imdb.com/title/{}' #Formata a frase       
+            fraseFormatada = fraseFormatada.format(mention.user.screen_name, jsonFilme["title"], jsonFilme["genres"][0]['name'], str(jsonFilme["vote_average"]), str(anoLancamento[0:4]), str(jsonFilme["imdb_id"]))
             
             linkImagem = 'https://image.tmdb.org/t/p/w500{}'.format(jsonFilme['poster_path'])           
             
