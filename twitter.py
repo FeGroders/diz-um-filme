@@ -9,6 +9,7 @@ import time
 import os
 from os import environ
 from random import randint
+from data import db
 
 API_KEY = environ['API_KEY'] #Autenticadores do Twitter
 API_KEY_SECRET = environ['API_KEY_SECRET'] #Variáveis setadas no Heroku
@@ -18,9 +19,8 @@ API_KEY_TMDB = environ['API_KEY_TMDB']
 
 auth = tweepy.OAuthHandler(API_KEY, API_KEY_SECRET)
 auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
-
+database = db
 api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True) #Autentica a conta
-nome_arquivo = 'ultimo_id_lido.txt'
 
 def sorteiaPagina():
     numeroPagina = randint(0,140)
@@ -30,17 +30,11 @@ def sorteiaFilme():
     numeroFilme = randint(0,9)
     return numeroFilme
 
-def le_ultimo_id_lido(nome_arquivo): #Função que lê o ultimo id lido pelo bot que fica salvo em um .txt separado
-    f_read = open(nome_arquivo, 'r')
-    ultimo_id_lido = int(f_read.read().strip())
-    f_read.close()
-    return ultimo_id_lido
+def le_ultimo_id_lido(): #Função que lê o ultimo id lido pelo bot que fica salvo em um .txt separado
+    return database.getUltimoIdLido()
 
-def guarda_ultimo_id_lido(ultimo_id_lido, nome_arquivo): #Função que salva o ultimo id lido pelo bot
-    f_write = open(nome_arquivo, 'w')
-    f_write.write(str(ultimo_id_lido))
-    f_write.close()
-    return
+def guarda_ultimo_id_lido(ultimo_id_lido): #Função que salva o ultimo id lido pelo bot
+    database.updateUltimoIdLido(ultimo_id_lido)
 
 def requestListaFilmes():
     print('--------------------------------') 
@@ -74,14 +68,14 @@ def tweet_image(url, message, mention):
 
 def fazerTweet():
     print(formatarHoras(),'BOT TRABALHANDO...')
-    ultimo_id_lido = le_ultimo_id_lido(nome_arquivo)
+    ultimo_id_lido = le_ultimo_id_lido()
     mentions = api.mentions_timeline(ultimo_id_lido , tweet_mode='extended') #Lê as menções ao bot e salva em um vetor
     for mention in reversed(mentions): #'reserved(mentions)' serve para ler o vetor do mais velho para o mais novo
         if '@dizumfilme' in mention.full_text.lower(): #Verificação apenas para garantir que o bot vai ler todas menções, independente de letra maiúscula ou minúscula
             jsonFilme = requestFilmeEspecifico()
             print(str(mention.id) + ' - ' + mention.full_text)
             ultimo_id_lido = mention.id
-            guarda_ultimo_id_lido(ultimo_id_lido, nome_arquivo) #Salva o id lido
+            guarda_ultimo_id_lido(ultimo_id_lido) #Salva o id lido
             print('Respondendo tweet')
             
             anoLancamento = jsonFilme["release_date"]
@@ -99,5 +93,4 @@ def formatarHoras():
 
 while True: #Loop que a atualiza o bot a cada 60 segundos
     fazerTweet()  
-    #requestFilmeEspecifico()
     time.sleep(60)
