@@ -77,7 +77,7 @@ def fazerTweet():
             ultimo_id_lido = mention.id
             guarda_ultimo_id_lido(ultimo_id_lido) #Salva o id lido
             print('Respondendo tweet')
-            
+
             anoLancamento = jsonFilme["release_date"]
             fraseFormatada = 'Olá @{}! 🎥 Minha indicação para você é: {} | 🎞️ Gênero: {} | ⭐ Nota: {}/10.0 | 🎉 Ano de lançamento: {} | 🔎 Ver mais sobre: https://www.imdb.com/title/{}' #Formata a frase       
             fraseFormatada = fraseFormatada.format(mention.user.screen_name, jsonFilme["title"], jsonFilme["genres"][0]['name'], str(jsonFilme["vote_average"]), str(anoLancamento[0:4]), str(jsonFilme["imdb_id"]))
@@ -85,6 +85,7 @@ def fazerTweet():
             linkImagem = 'https://image.tmdb.org/t/p/w500{}'.format(jsonFilme['poster_path'])           
             
             tweet_image(linkImagem, fraseFormatada, mention.id)
+            api.update_status(status='🍿 Sinopse: {}'.format(jsonFilme["overview"]), in_reply_to_status_id=mention.id)
 
 def formatarHoras():
     now = datetime.now()
