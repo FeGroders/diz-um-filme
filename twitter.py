@@ -11,18 +11,11 @@ from os import environ
 from random import randint
 from data import db
 
-# API_KEY = environ['API_KEY'] #Autenticadores do Twitter
-# API_KEY_SECRET = environ['API_KEY_SECRET'] #Variáveis setadas no Heroku
-# ACCESS_TOKEN = environ['ACCESS_TOKEN']
-# ACCESS_SECRET = environ['ACCESS_SECRET']
-# API_KEY_TMDB = environ['API_KEY_TMDB']
-
-API_KEY = 'bowoyP9rnFeXiKjsRCwqhXLmG'
-API_KEY_SECRET = 'sYeU8Lisr5qk3mI4A74RWMPQSNBtX1QEwWOKunBGflnX4rLXUq'
-ACCESS_TOKEN = '1414621937402322952-6dw9hiLbMKCIAOC5lkBRhZLGpKOHr3'
-ACCESS_SECRET = 'm9dTAnWHMGJKsDOdN6K2HG0T0fnkToA6JfohwE1z0MUWq'
-API_KEY_TMDB = 'eaa42507ce91f5145d52e2006ab0725a'
-
+API_KEY = environ['API_KEY'] #Autenticadores do Twitter
+API_KEY_SECRET = environ['API_KEY_SECRET'] #Variáveis setadas no Heroku
+ACCESS_TOKEN = environ['ACCESS_TOKEN']
+ACCESS_SECRET = environ['ACCESS_SECRET']
+API_KEY_TMDB = environ['API_KEY_TMDB']
 
 auth = tweepy.OAuthHandler(API_KEY, API_KEY_SECRET)
 auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
