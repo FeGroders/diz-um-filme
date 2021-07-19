@@ -8,26 +8,27 @@
   Twitter bot made in Python that when mentioned by a user, it tweets back suggesting a random movie from Netflix
 </h4>
 <p align="center">
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/fegroders/diz-um-filme">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/fegroders/diz-um-filme">&nbsp;
   <a href="https://github.com/fegroders/diz-um-filme/commits/master">
-    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/fegroders/diz-um-filme">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/fegroders/diz-um-filme">&nbsp;
   </a>
 
   <a href="https://github.com/fegroders/diz-um-filme/issues">
-    <img alt="Repository issues" src="https://img.shields.io/github/issues/fegroders/diz-um-filme">
+    <img alt="Repository issues" src="https://img.shields.io/github/issues/fegroders/diz-um-filme">&nbsp;
   </a>
 
   <a href="#">
-  <img src="http://heroku-shields.herokuapp.com/diz-um-filme-bot" />        
-  </a>&nbsp;&nbsp;
+  <img src="http://heroku-shields.herokuapp.com/diz-um-filme-bot" />&nbsp;        
+  </a>
 
   <img alt="GitHub" src="https://img.shields.io/github/license/fegroders/diz-um-filme">
 </p>
 
 <p align="center">
-  <a href="#rocket-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#information_source-how-to-use">How To Use</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#memo-license">License</a>
+  <a href="https://github.com/FeGroders/diz-um-filme#-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="https://github.com/FeGroders/diz-um-filme#-how-to-use">How To Use</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="https://github.com/FeGroders/diz-um-filme#-license">License</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="https://twitter.com/DizUmFilme">Twitter Page</a>
 </p>
 
 
