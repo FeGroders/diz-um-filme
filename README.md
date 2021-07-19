@@ -72,11 +72,12 @@ This project is under the MIT license. See the [LICENSE](https://github.com/fegr
 ---
 ### Author
 ---
- <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/62064189?v=4" width="100px;" alt=""/>
+
+<a href="https://github.com/FeGroders">
+ <img style="border-radius: 50%" src="https://avatars3.githubusercontent.com/u/62064189?s=460&u=61b426b901b8fe02e12019b1fdb67bf0072d4f00&v=4" width="100px;" alt=""/>
  <br />
- <sub><b>Fernando Groders</b></sub>
-
-
+ <sub><b>Fernando Groders</b></sub></a>
+ 
 Made by Fernando Groders 👋🏽 Contact-me! <br/>
 [![Instagram Badge](https://img.shields.io/badge/-Instagram-%23E4405F?style=flat-square&labelColor=%23E4405F&logo=instagram&logoColor=white&link=https://twitter.com/tgmarinho)](https://instagram.com/fegroders) 
 [![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/tgmarinho/)](https://www.linkedin.com/in/fernandogroders/) 
