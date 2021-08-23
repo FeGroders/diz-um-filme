@@ -60,6 +60,8 @@ $ git clone https://github.com/FeGroders/diz-um-filme.git
 $ cd diz-um-filme
 
 # Install dependencies
+$ pip install Tweepy
+
 $ yarn install
 ```
 In the project, change the api keys and run the program.
